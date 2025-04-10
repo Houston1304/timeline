@@ -155,21 +155,27 @@ const TimelineBlock: React.FC = () => {
           </div>
         </div>
         <div className={styles.slider}>
-          <div
-            className={`${styles.swiperPrev} ${
-              isBeginning ? styles.disabled : ""
-            }`}
-          >
-            <img src={leftSwipe} />
-          </div>
-          <div
-            className={`${styles.swiperNext} ${isEnd ? styles.disabled : ""}`}
-          >
-            <img src={rightSwipe} />
-          </div>
+          {window.innerWidth > 720 && (
+            <React.Fragment>
+              <div
+                className={`${styles.swiperPrev} ${
+                  isBeginning ? styles.disabled : ""
+                }`}
+              >
+                <img src={leftSwipe} />
+              </div>
+              <div
+                className={`${styles.swiperNext} ${
+                  isEnd ? styles.disabled : ""
+                }`}
+              >
+                <img src={rightSwipe} />
+              </div>
+            </React.Fragment>
+          )}
           <Swiper
             modules={[Navigation]}
-            slidesPerView={3}
+            slidesPerView={window.innerWidth > 720 ? 3 : 1}
             spaceBetween={150}
             navigation={{
               nextEl: `.${styles.swiperNext}`,
@@ -192,6 +198,17 @@ const TimelineBlock: React.FC = () => {
             ))}
           </Swiper>
         </div>
+      </div>
+      <div className={styles.periodsPagination}>
+        {periods.map((_, index) => (
+          <span
+            key={index}
+            className={`${styles.paginationDot} ${
+              index === currentPeriodIndex ? styles.activeDot : ""
+            }`}
+            onClick={() => handlePointClick(index)}
+          ></span>
+        ))}
       </div>
     </div>
   );

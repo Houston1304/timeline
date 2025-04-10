@@ -185,6 +185,7 @@
   }
 
   .swiperSlideYear {
+    font-family: "Bebas Neue";
     font-size: 25px;
     font-weight: 400;
     color: #3877ee;
@@ -210,6 +211,12 @@
     align-items: center;
     background-color: #ffffff;
   }
+
+  .swiperNextHidden,
+  .swiperPrevHidden {
+    display: none;
+  }
+
   .disabled {
     cursor: default;
     opacity: 0;
@@ -220,5 +227,110 @@
 
   .swiperNext {
     right: -90px;
+  }
+
+  .periodsPagination {
+    display: none;
+  }
+
+  @media (max-width: 720px) {
+    width: 320px;
+    height: 568px;
+    padding-top: 0;
+    justify-content: space-between;
+    border: none;
+
+    .circle,
+    .line,
+    .verticalLine,
+    .horizontalLine,
+    .pointLabel {
+      display: none;
+    }
+
+    .yearsBox {
+      width: 100%;
+      gap: 30px;
+    }
+
+    .year {
+      font-size: 56px;
+
+      &.yearStart {
+        color: #3877ee;
+      }
+    }
+
+    .title {
+      margin-top: 50px;
+      margin-left: 20px;
+      font-size: 20px;
+      width: 120px;
+    }
+
+    .slider {
+      margin: 0;
+    }
+
+    .swiperSlide {
+      height: 80px;
+    }
+
+    .swiperSlideYear {
+      color: #3877ee;
+      font-size: 16px;
+    }
+
+    .swiperSlideContent {
+      font-size: 14px;
+    }
+
+    .bottomBox {
+      margin: 20px;
+      padding: 20px 0 0 0;
+      display: flex;
+      flex-direction: column-reverse;
+      border-top: solid 1px #c7cdd9;
+    }
+
+    .nav {
+      margin-top: 50px;
+      height: 50px;
+      width: 60px;
+    }
+
+    .navButton {
+      width: 25px;
+      height: 25px;
+
+      img {
+        height: 6.25px;
+      }
+    }
+
+    .periodsPagination {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      bottom: 35px;
+    }
+
+    .paginationDot {
+      width: 6px;
+      height: 6px;
+      background-color: #42567a;
+      opacity: 0.4;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .activeDot {
+      opacity: 1;
+      background-color: #42567a;
+    }
   }
 }
